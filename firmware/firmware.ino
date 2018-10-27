@@ -8,8 +8,6 @@ Bounce hangButton = Bounce();
 Bounce holdButton = Bounce();
 
 void setup() {
-  Serial.begin(115200);
-
   holdButton.attach(HOLD_BUTTON_PIN, INPUT_PULLUP);
   holdButton.interval(50);
 
@@ -28,12 +26,10 @@ void handleButtons() {
   hangButton.update();
 
   if (holdButton.fell()) {
-    //    Keyboard.print("Hold");
     holdCallMacro();
   }
 
   if (hangButton.fell()) {
-    //    Keyboard.print("Hang");
     hangCallMacro();
   }
 }
